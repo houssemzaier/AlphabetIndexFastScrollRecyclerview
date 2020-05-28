@@ -1,31 +1,33 @@
 package fastscroll.app.alphabetindex;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import fastscroll.app.fastscrollalphabetindex.SectionIndexerAdapter;
+
 /**
  * Created by frantic on 2/2/18.
  */
 
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> implements SectionIndexer,Comparable{
-    List<Data> dataList;
+public class DataAdapter extends SectionIndexerAdapter<DataAdapter.MyHolder> implements Comparable {
+
+    private List<Data> dataList;
     private ArrayList<Integer> mSectionPositions;
 
-    public DataAdapter(List<Data> dataList) {
+    DataAdapter(List<Data> dataList) {
         this.dataList = dataList;
     }
 
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item,null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, null);
         return new MyHolder(view);
     }
 
@@ -33,12 +35,11 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> impl
     public void onBindViewHolder(MyHolder holder, int position) {
         Data data = dataList.get(position);
         holder.title.setText(data.getTitle());
-
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return (dataList == null) ? 0 : dataList.size();
     }
 
     @Override
@@ -57,7 +58,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> impl
 
     @Override
     public int getPositionForSection(int i) {
-        return mSectionPositions.get(i);    }
+        return mSectionPositions.get(i);
+    }
 
     @Override
     public int getSectionForPosition(int i) {
@@ -69,9 +71,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyHolder> impl
         return 0;
     }
 
-    public class MyHolder extends RecyclerView.ViewHolder {
+    static class MyHolder extends RecyclerView.ViewHolder {
         TextView title;
-        public MyHolder(View itemView) {
+
+        MyHolder(View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
         }

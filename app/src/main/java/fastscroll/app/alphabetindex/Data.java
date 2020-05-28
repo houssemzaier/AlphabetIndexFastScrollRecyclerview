@@ -1,6 +1,6 @@
 package fastscroll.app.alphabetindex;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Comparator;
 
@@ -8,9 +8,9 @@ import java.util.Comparator;
  * Created by frantic on 2/2/18.
  */
 
-public class Data implements  Comparable<Data>{
-    int id;
-    String title;
+public class Data implements Comparable<Data> {
+    private int id;
+    private String title;
 
     public Data() {
     }
@@ -36,23 +36,20 @@ public class Data implements  Comparable<Data>{
     }
 
     @Override
-    public int compareTo(@NonNull Data data) {
-        String compareQuantity = ((Data) data).getTitle();
+    public int compareTo(@NonNull Data otherData) {
+        String compareQuantity = ((Data) otherData).getTitle();
 
         //ascending order
-        return this.title.compareTo(data.getTitle());
+        return this.title.compareTo(otherData.getTitle());
     }
 
     public static Comparator<Data> titleNameComparator = new Comparator<Data>() {
 
         public int compare(Data data1, Data data2) {
-
             String d1 = data1.getTitle().toUpperCase();
             String d2 = data2.getTitle().toUpperCase();
-
             //ascending order
             return d1.compareTo(d2);
-
             //descending order
             //return fruitName2.compareTo(fruitName1);
         }

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AlphabetIndexFastScrollRecyclerview.iml" filepath="$PROJECT_DIR$/AlphabetIndexFastScrollRecyclerview.iml" group="AlphabetIndexFastScrollRecyclerview" />
+      <module fileurl="file://$PROJECT_DIR$/app/AlphabetIndexFastScrollRecyclerview-app.iml" filepath="$PROJECT_DIR$/app/AlphabetIndexFastScrollRecyclerview-app.iml" group="AlphabetIndexFastScrollRecyclerview/app" />
+      <module fileurl="file://$PROJECT_DIR$/fastscrollalphabetindex/AlphabetIndexFastScrollRecyclerview-fastscrollalphabetindex.iml" filepath="$PROJECT_DIR$/fastscrollalphabetindex/AlphabetIndexFastScrollRecyclerview-fastscrollalphabetindex.iml" group="AlphabetIndexFastScrollRecyclerview/fastscrollalphabetindex" />
       <module fileurl="file://$PROJECT_DIR$/FastScrollRecyclerviewAlphabetIndex.iml" filepath="$PROJECT_DIR$/FastScrollRecyclerviewAlphabetIndex.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastscrollalphabetindex/fastscrollalphabetindex.iml" filepath="$PROJECT_DIR$/fastscrollalphabetindex/fastscrollalphabetindex.iml" />

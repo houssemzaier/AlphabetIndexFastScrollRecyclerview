@@ -1,9 +1,10 @@
 package fastscroll.app.alphabetindex;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,37 +13,58 @@ import java.util.List;
 import fastscroll.app.fastscrollalphabetindex.AlphabetIndexFastScrollRecyclerView;
 
 public class MainActivity extends AppCompatActivity {
-    AlphabetIndexFastScrollRecyclerView recyclerView;
-    List<Data> dataList;
+    private List<Data> dataList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        dataList = new ArrayList<>();
-        recyclerView = findViewById(R.id.recyclerView);
-        initData();
-        Collections.sort(dataList,Data.titleNameComparator);
+
+        final AlphabetIndexFastScrollRecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+/*
+        recyclerView.setIndexBarTextSize(14);
+        recyclerView.setIndexBarWidth(50);
+//     recyclerView.setIndexBarMargin(100);
+//     recyclerView.setIndexBarBackgroundColor("#cdced2");
+        recyclerView.setIndexBarBackgroundColor(R.color.colorAccent);
+//     recyclerView.setIndexBarBackgroundColor("#FF4081");
+//        recyclerView.setIndexBarTextColor("#00ff00");
+        recyclerView.setIndexBarTextColor(R.color.colorPrimary);
+        recyclerView.setIndexBarHighlightTextColor("#FFD600");
+//        recyclerView.setIndexBarHighlightTextColor(R.color.colorHighlight);
+        recyclerView.setIndexBarHighlightTextVisibility(true);
+        recyclerView.setIndexBarBackgroundTransparency((float) 1);
+        recyclerView.setIndexBarCornerRadius(10);
+        recyclerView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//             recyclerView.isIndexBarVisible(false);
+            }
+        }, 10_000);
+
+*/
+
+        recyclerView.setIndexBarTextSize(12);
+        recyclerView.setIndexBarTextColor("#000000");
+        recyclerView.setIndexBarBackgroundColor("#cdced2");
+        recyclerView.setIndexBarHighlightTextColor("#FF4081");
+        recyclerView.setIndexBarHighlightTextVisibility(true);
+        recyclerView.setIndexBarBackgroundTransparency((float) 1.0);
+
+        initData();
         DataAdapter adapter = new DataAdapter(dataList);
         recyclerView.setAdapter(adapter);
-        recyclerView.setIndexTextSize(12);
-        recyclerView.setIndexBarTextColor("#000000");
-        recyclerView.setIndexBarColor("#cdced2");
-        recyclerView.setIndexbarHighLateTextColor("#FF4081");
-        recyclerView.setIndexBarHighLateTextVisibility(true);
-        recyclerView.setIndexBarTransparentValue((float) 1.0);
-
-
-
-
-
     }
 
     private void initData() {
-        dataList.add(new Data("Apple"));
-        dataList.add(new Data("Ant"));
+        dataList = new ArrayList<>();
+//        dataList.add(new Data("Apple"));
+//        dataList.add(new Data("Ant"));
         dataList.add(new Data("Bpple"));
         dataList.add(new Data("BDnt"));
         dataList.add(new Data("Cpple"));
@@ -87,24 +109,25 @@ public class MainActivity extends AppCompatActivity {
         dataList.add(new Data("VDnt"));
         dataList.add(new Data("Wpple"));
         dataList.add(new Data("Wnt"));
-        dataList.add(new Data("Xpple"));
-        dataList.add(new Data("XDnt"));
-        dataList.add(new Data("Ypple"));
-        dataList.add(new Data("Ynt"));
-        dataList.add(new Data("Zpple"));
-        dataList.add(new Data("ZDnt"));
+//        dataList.add(new Data("Xpple"));
+//        dataList.add(new Data("XDnt"));
+//        dataList.add(new Data("Ypple"));
+//        dataList.add(new Data("Ynt"));
+//        dataList.add(new Data("Zpple"));
+//        dataList.add(new Data("ZDnt"));
         dataList.add(new Data("kpple"));
-        dataList.add(new Data("ant"));
+//        dataList.add(new Data("ant"));
         dataList.add(new Data("ppple"));
         dataList.add(new Data("iDnt"));
         dataList.add(new Data("fpple"));
         dataList.add(new Data("rnt"));
-        dataList.add(new Data("apple"));
+//        dataList.add(new Data("apple"));
         dataList.add(new Data("nDnt"));
         dataList.add(new Data("tpple"));
         dataList.add(new Data("int"));
         dataList.add(new Data("cpple"));
         dataList.add(new Data("lDnt"));
+        Collections.sort(dataList, Data.titleNameComparator);
     }
 
 }
